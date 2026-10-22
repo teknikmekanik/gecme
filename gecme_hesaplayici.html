@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="ISO 286 delik-mil geçme hesabı: sınır ölçüler, boşluk/sıkılık ve geçme tipi.">
+<title>Geçme Hesabı · Teknik Mekanik</title>
+<style>
+:root{--bg:#123a63;--grid:#244a71;--panel:#0e2a4a;--row:#16426e;--line:#2c5480;--fg:#f4f8fc;--dim:#96b4d2;--yel:#f2b705;--teal:#5ae1eb;--red:#ff6040;--grn:#78dc8c;--dark:#0c2848;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:40px 40px;color:var(--fg);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:0 16px 40px}
+.wrap{max-width:1180px;margin:0 auto}
+header{display:flex;align-items:center;gap:14px;padding:18px 0 10px;flex-wrap:wrap}
+.logo{border:3px solid var(--fg);font:700 22px/1 ui-monospace,"DejaVu Sans Mono",Menlo,monospace;padding:7px 10px}
+.brand{font:700 18px ui-monospace,"DejaVu Sans Mono",Menlo,monospace;letter-spacing:.04em}
+header h1{margin:0;font:700 26px/1.1 Georgia,"DejaVu Serif",serif;flex:1 1 100%}
+header h1 span{color:var(--yel)}
+.ig{margin-left:auto;display:flex;align-items:center;gap:9px;background:var(--yel);color:var(--dark);text-decoration:none;border-radius:12px;padding:7px 14px 7px 10px;font:600 14px/1.15 system-ui}
+.ig span{display:flex;flex-direction:column}
+.ig small{font-size:11.5px;font-weight:600;opacity:.8}
+.ig:hover{filter:brightness(1.08)}
+@media(max-width:480px){.ig{order:3;flex:1 1 100%;justify-content:center;margin-left:0}}
+.lang{display:flex;border:2px solid var(--line);border-radius:10px;overflow:hidden}
+.lang button{background:transparent;color:var(--dim);border:0;padding:6px 12px;font:600 13px system-ui;cursor:pointer}
+.lang button.on{background:var(--yel);color:var(--dark)}
+.grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:16px}
+@media(max-width:860px){.grid{grid-template-columns:minmax(0,1fr)}.col{display:contents!important}.dimcard{order:2}.steps{order:3}}
+.card{background:var(--panel);border:2px solid var(--line);border-radius:16px;padding:16px;min-width:0}
+.card h2{margin:0 0 12px;font:700 13px/1 system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.types{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px}
+.types button{background:var(--row);border:2px solid transparent;border-radius:12px;color:var(--fg);padding:8px 4px 6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;font:600 12.5px system-ui}
+.types button svg{width:44px;height:34px}
+.types button.on{border-color:var(--yel);color:var(--yel)}
+.fig{display:flex;justify-content:center;margin:4px 0 12px}
+.fig svg{width:100%;max-width:340px;height:auto}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:var(--dim)}
+input,select{background:var(--dark);border:2px solid var(--line);border-radius:10px;color:var(--fg);font:600 16px ui-monospace,"DejaVu Sans Mono",Menlo,monospace;padding:9px 10px;width:100%;min-width:0}
+input:focus,select:focus{outline:none;border-color:var(--teal)}
+.chk{flex-direction:row;align-items:center;gap:8px;margin-top:10px;color:var(--fg)}
+.chk input{width:auto}
+.res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+.res div{background:var(--row);border-radius:12px;padding:10px 12px}
+.res small{display:block;color:var(--dim);font-size:12px}
+.res b{font:700 20px ui-monospace,"DejaVu Sans Mono",Menlo,monospace;color:var(--teal);font-variant-numeric:tabular-nums}
+.res .tot{background:var(--yel);color:var(--dark)}
+.res .tot small{color:var(--dark)}
+.res .tot b{color:var(--dark);font-size:24px}
+@media(max-width:480px){.res{grid-template-columns:1fr 1fr}.res .tot{grid-column:1/-1}}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn{background:var(--yel);color:var(--dark);border:0;border-radius:12px;padding:11px 16px;font:700 15px system-ui;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--fg);border:2px solid var(--line)}
+.btn.teal{background:var(--teal)}
+.col{display:flex;flex-direction:column;gap:16px;min-width:0}
+.dimcard{align-self:start}
+.steps ol{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.steps li{background:var(--row);border-left:4px solid var(--yel);border-radius:10px;padding:9px 12px}
+.steps li .k{display:block;color:var(--dim);font-size:12px}
+.steps li code{font:600 15px ui-monospace,"DejaVu Sans Mono",Menlo,monospace;color:var(--fg);white-space:normal;word-break:break-word}
+.steps li code em{color:var(--yel);font-style:normal}
+.note{color:var(--dim);font-size:12.5px;margin-top:10px}
+.list{margin-top:16px}
+.tbl{overflow-x:auto;border-radius:12px;border:2px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:14px}
+th.n{text-align:right}
+th{background:var(--yel);color:var(--dark);text-align:left;padding:9px 10px;font-weight:700;white-space:nowrap}
+td{padding:8px 10px;border-top:1px solid var(--line);white-space:nowrap;font-variant-numeric:tabular-nums}
+tbody tr:nth-child(odd){background:var(--row)}
+td.n{text-align:right;font-family:ui-monospace,"DejaVu Sans Mono",Menlo,monospace}
+tfoot td{background:var(--dark);font-weight:700;color:var(--yel)}
+.del{background:transparent;border:0;color:var(--red);font-size:18px;cursor:pointer}
+.empty{color:var(--dim);padding:18px;text-align:center}
+.proj{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:12px}
+footer{color:var(--dim);font-size:12.5px;margin-top:22px;text-align:center}
+
+.sel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.cls{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px}
+.presets{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.presets button{background:var(--row);border:2px solid transparent;border-radius:12px;color:var(--fg);padding:8px 10px;cursor:pointer;text-align:left;font:600 13px system-ui}
+.presets button b{display:block;font:700 17px ui-monospace,"DejaVu Sans Mono",Menlo,monospace;color:var(--yel)}
+.presets button small{color:var(--dim);font-size:11.5px}
+.presets button.on{border-color:var(--yel)}
+.res4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+.res4 div{background:var(--row);border-radius:12px;padding:10px 12px}
+.res4 small{display:block;color:var(--dim);font-size:12px}
+.res4 b{font:700 18px ui-monospace,"DejaVu Sans Mono",Menlo,monospace;color:var(--teal);font-variant-numeric:tabular-nums}
+.res4 .ty{grid-column:1/-1;background:var(--yel);color:var(--dark)}
+.res4 .ty small{color:var(--dark)}
+.res4 .ty b{color:var(--dark);font-size:22px}
+.use{margin-top:10px;color:var(--fg);background:var(--row);border-left:4px solid var(--teal);border-radius:10px;padding:9px 12px;font-size:13.5px}
+.zone svg{width:100%;height:auto;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="logo">TM</div><div class="brand" id="brand">TEKNİK MEKANİK</div>
+<a class="ig" href="https://www.instagram.com/teknik.mekaniktm/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor"/></svg><span><b>@teknik.mekaniktm</b><small id="igt"></small></span></a>
+<div class="lang"><button data-l="tr" class="on">TR</button><button data-l="en">EN</button></div>
+<h1 id="ttl"></h1>
+</header>
+<div class="grid">
+<div class="col">
+<section class="card">
+<h2 id="h_pre"></h2>
+<div class="presets" id="presets"></div>
+</section>
+<section class="card steps">
+<h2 id="h_steps"></h2>
+<ol id="steps"></ol>
+<div class="note" id="stepnote"></div>
+</section>
+</div>
+<section class="card dimcard">
+<h2 id="h_in"></h2>
+<div class="sel">
+<label><span id="l_d"></span><input id="dia" inputmode="decimal" value="25"></label>
+<label><span id="l_fit"></span><input id="fitname" readonly></label>
+<label><span id="l_h"></span><div class="cls"><select id="hl"></select><select id="hg"></select></div></label>
+<label><span id="l_s"></span><div class="cls"><select id="sl"></select><select id="sg"></select></div></label>
+</div>
+<div class="zone" id="zone"></div>
+<div class="res4">
+<div><small id="r1l"></small><b id="r1">–</b></div>
+<div><small id="r2l"></small><b id="r2">–</b></div>
+<div><small id="r3l"></small><b id="r3">–</b></div>
+<div><small id="r4l"></small><b id="r4">–</b></div>
+<div class="ty"><small id="r5l"></small><b id="r5">–</b></div>
+</div>
+<div class="use" id="use" hidden></div>
+<div class="btns"><button class="btn" id="add"></button></div>
+</section>
+</div>
+<section class="card list">
+<h2 id="h_list"></h2>
+<div class="proj">
+<label><span id="l_proj"></span><input id="proj"></label>
+<label><span id="l_by"></span><input id="by"></label>
+</div>
+<div class="tbl"><table>
+<thead><tr id="thead"></tr></thead>
+<tbody id="tbody"></tbody>
+</table></div>
+<div class="btns"><button class="btn teal" id="pdf"></button><button class="btn ghost" id="clr"></button></div>
+<div class="note" id="tolnote"></div>
+</section>
+<footer id="foot"></footer>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const BM=[3,6,10,18,30,50,80,120,180,250,315,400,500];
+const BF=[3,6,10,18,24,30,40,50,65,80,100,120,140,160,180,200,225,250,280,315,355,400,450,500];
+const MF=[0,1,2,3,4,4,5,5,6,6,7,7,8,8,8,9,9,9,10,10,11,11,12,12];
+const IT={4:[3,4,4,5,6,7,8,10,12,14,16,18,20],5:[4,5,6,8,9,11,13,15,18,20,23,25,27],6:[6,8,9,11,13,16,19,22,25,29,32,36,40],7:[10,12,15,18,21,25,30,35,40,46,52,57,63],8:[14,18,22,27,33,39,46,54,63,72,81,89,97],9:[25,30,36,43,52,62,74,87,100,115,130,140,155],10:[40,48,58,70,84,100,120,140,160,185,210,230,250],11:[60,75,90,110,130,160,190,220,250,290,320,360,400]};
+const M13=a=>MF.map(i=>a[i]);
+const UP={c:[-60,-70,-80,-95,-110,-110,-120,-130,-140,-150,-170,-180,-200,-210,-230,-240,-260,-280,-300,-330,-360,-400,-440,-480],
+d:M13([-20,-30,-40,-50,-65,-80,-100,-120,-145,-170,-190,-210,-230]),e:M13([-14,-20,-25,-32,-40,-50,-60,-72,-85,-100,-110,-125,-135]),
+f:M13([-6,-10,-13,-16,-20,-25,-30,-36,-43,-50,-56,-62,-68]),g:M13([-2,-4,-5,-6,-7,-9,-10,-12,-14,-15,-17,-18,-20]),h:M13(Array(13).fill(0))};
+const LO={k:M13([0,1,1,1,2,2,2,3,3,4,4,4,5]),m:M13([2,4,6,7,8,9,11,13,15,17,20,21,23]),n:M13([4,8,10,12,15,17,20,23,27,31,34,37,40]),
+p:M13([6,12,15,18,22,26,32,37,43,50,56,62,68]),r:[10,15,19,23,28,28,34,34,41,43,51,54,63,65,68,77,80,84,94,98,108,114,126,132],
+s:[14,19,23,28,35,35,43,43,53,59,71,79,92,100,108,122,130,140,158,170,190,208,232,252],u:[18,23,28,33,41,48,60,70,87,102,124,144,170,190,210,236,258,284,315,350,390,435,490,540]};
+const SL=['c','d','e','f','g','h','js','k','m','n','p','r','s','u'],GR=[5,6,7,8,9,10,11];
+const PRE=[['H11','c11',{tr:'Gevşek boşluklu',en:'Loose running'},{tr:'Kaba mafsallar, tarım makinesi pimleri, büyük toleranslı bağlantılar.',en:'Rough joints, agricultural pins, wide-tolerance assemblies.'}],
+['H9','d9',{tr:'Serbest boşluklu',en:'Free running'},{tr:'Yüksek devirli ya da büyük sıcaklık farklı yataklar, boşta dönen kasnaklar.',en:'High-speed or hot-running bearings, idler pulleys.'}],
+['H8','f7',{tr:'Çalışma boşluklu',en:'Close running'},{tr:'Kaymalı yataklar, mil–burç, orta hızlı dönen parçalar.',en:'Plain bearings, shaft in bush, moderate-speed running parts.'}],
+['H7','g6',{tr:'Hassas kayar',en:'Sliding'},{tr:'Hassas kılavuzlar, kayar dişliler, sökülüp takılan hassas parçalar.',en:'Precision guides, sliding gears, accurate parts that must move.'}],
+['H7','h6',{tr:'Konumlama boşluklu',en:'Locational clearance'},{tr:'Merkezleme yüzeyleri, kolay sökülen sabit parçalar.',en:'Spigots and centring faces, stationary parts that must come apart easily.'}],
+['H7','js6',{tr:'Geçiş (hafif)',en:'Transition (light)'},{tr:'Kasnak ve dişli göbekleri, tokmakla takılan parçalar.',en:'Pulley and gear hubs, parts fitted with a mallet.'}],
+['H7','k6',{tr:'Geçiş',en:'Locational transition'},{tr:'Rulman iç bileziği (normal yük), kaplin göbekleri.',en:'Bearing inner rings (normal load), coupling hubs.'}],
+['H7','n6',{tr:'Geçiş – sıkıya yakın',en:'Locational transition (tight)'},{tr:'Dişli ve kaplin göbekleri, presle takılan burçlar.',en:'Gear and coupling hubs, pressed-in bushes.'}],
+['H7','p6',{tr:'Hafif sıkı (pres)',en:'Locational interference'},{tr:'Burçların preslenmesi, sökülmesi gerekmeyen konumlu parçalar.',en:'Pressed bushes, located parts that rarely come apart.'}],
+['H7','s6',{tr:'Sıkı pres',en:'Medium drive'},{tr:'Kalıcı göbek bağlantıları, bronz çember – çelik göbek.',en:'Permanent hub fits, bronze rim on steel hub.'}]];
+const T={tr:{ttl:'ISO 286 <span>Geçme Hesabı</span>',igt:'Daha fazlası için takip et',pre:'Sık kullanılan geçmeler',steps:'Adım adım hesap',inp:'Ölçü ve tolerans sınıfı',d:'Nominal çap (mm)',fit:'Geçme',h:'Delik (büyük harf)',s:'Mil (küçük harf)',r1:'Delik (mm)',r2:'Mil (mm)',r3:'En büyük boşluk',r4:'En küçük boşluk',r5:'Geçme tipi',cl:'Boşluklu geçme',tr_:'Geçiş geçmesi',in_:'Sıkı geçme',add:'+ Listeye ekle',list:'Geçme listesi',proj:'Proje / parça',by:'Hazırlayan',pdf:'PDF indir',clr:'Listeyi temizle',empty:'Henüz geçme eklenmedi.',cols:['#','Ø (mm)','Geçme','Delik (mm)','Mil (mm)','Max boşluk','Min boşluk','Tip',''],
+note:'Negatif boşluk = sıkılık. Değerler ISO 286-1/-2 temel sapma ve IT tablolarından hesaplanır (Ø 1–500 mm).',tol:'Kontrol: Kritik parçalarda değerleri ISO 286-2 tablosundan doğrulayın.',foot:'Teknik Mekanik · @teknik.mekaniktm',pdfT:'GEÇME LİSTESİ',page:'Sayfa',date:'Tarih',bad:'Ø 1–500 mm arasında bir değer girin.',
+st:{rng:'Çap aralığı',it:'Tolerans genişliği',hd:'Delik sapmaları',sd:'Mil sapmaları',mx:'En büyük boşluk',mn:'En küçük boşluk',dl:'Δ düzeltmesi'},stn:'ES, EI: delik üst/alt sapma · es, ei: mil üst/alt sapma (µm)',hole:'DELİK',shaft:'MİL',zero:'sıfır çizgisi',um:'µm'},
+en:{ttl:'ISO 286 <span>Fit Calculator</span>',igt:'Follow for more',pre:'Common fits',steps:'Step-by-step',inp:'Size and tolerance class',d:'Nominal diameter (mm)',fit:'Fit',h:'Hole (capital)',s:'Shaft (lower case)',r1:'Hole (mm)',r2:'Shaft (mm)',r3:'Max clearance',r4:'Min clearance',r5:'Fit type',cl:'Clearance fit',tr_:'Transition fit',in_:'Interference fit',add:'+ Add to list',list:'Fit list',proj:'Project / part',by:'Prepared by',pdf:'Download PDF',clr:'Clear list',empty:'No fits added yet.',cols:['#','Ø (mm)','Fit','Hole (mm)','Shaft (mm)','Max clear.','Min clear.','Type',''],
+note:'Negative clearance = interference. Values are computed from ISO 286-1/-2 fundamental deviations and IT grades (Ø 1–500 mm).',tol:'Check: verify critical parts against the ISO 286-2 tables.',foot:'Technical Mechanics · @teknik.mekaniktm',pdfT:'FIT LIST',page:'Page',date:'Date',bad:'Enter a value between Ø 1 and 500 mm.',
+st:{rng:'Size range',it:'Tolerance grade',hd:'Hole deviations',sd:'Shaft deviations',mx:'Max clearance',mn:'Min clearance',dl:'Δ correction'},stn:'ES, EI: hole upper/lower · es, ei: shaft upper/lower deviation (µm)',hole:'HOLE',shaft:'SHAFT',zero:'zero line',um:'µm'}};
+let L='tr',list=[],pre=3;
+try{const s=JSON.parse(localStorage.getItem('tm_gecme')||'null');if(s){L=s.L||'tr';list=s.list||[]}}catch(e){}
+function save(){try{localStorage.setItem('tm_gecme',JSON.stringify({L,list}))}catch(e){}}
+const pn=v=>parseFloat(String(v).replace(',','.'));
+const nf=(v,d=3)=>v.toLocaleString(L==='tr'?'tr-TR':'en-GB',{minimumFractionDigits:d,maximumFractionDigits:d});
+const sg=v=>(v>0?'+':v<0?'−':'±')+nf(Math.abs(v),0);
+const um=v=>{const a=Math.abs(v),s=v>0?'+':v<0?'−':'';return s+(Number.isInteger(a)?String(a):nf(a,1))};
+function im(D){for(let i=0;i<BM.length;i++)if(D<=BM[i])return i;return -1}
+function ifn(D){for(let i=0;i<BF.length;i++)if(D<=BF[i])return i;return -1}
+function rng(D){const i=ifn(D);return [i?BF[i-1]:0,BF[i]]}
+function itv(g,D){return IT[g][im(D)]}
+function shaft(l,g,D){const t=itv(g,D),f=ifn(D);let es,ei,note='';
+if(l==='js'){es=t/2;ei=-t/2;note='js: ±IT/2'}
+else if(UP[l]){es=UP[l][f];ei=es-t;note=`es = ${um(es)} → ei = es − IT${g}`}
+else{let v=LO[l][f];if(l==='k'&&(g<4||g>7))v=0;ei=v;es=ei+t;note=`ei = ${um(ei)} → es = ei + IT${g}`}
+return {es,ei,t,note}}
+function hole(l,g,D){const t=itv(g,D),f=ifn(D),s=l.toLowerCase();let ES,EI,note='',dl=0;
+const delta=()=>D>3?itv(g,D)-IT[g-1][im(D)]:0;
+if(l==='JS'){ES=t/2;EI=-t/2;note='JS: ±IT/2'}
+else if(l==='H'){EI=0;ES=t;note=`EI = 0 → ES = EI + IT${g}`}
+else if(UP[s]){EI=-UP[s][f];ES=EI+t;note=`EI = −es(${s}) = ${um(EI)} → ES = EI + IT${g}`}
+else{let ei=LO[s][f];
+if(l==='K'){if(g<=8){dl=delta();ES=-ei+dl}else ES=0}
+else if(l==='M'){if(g<=8){dl=delta();ES=-ei+dl}else ES=-ei}
+else if(l==='N'){if(g<=8){dl=delta();ES=-ei+dl}else ES=0}
+else{if(g<=7){dl=delta();ES=-ei+dl}else ES=-ei}
+EI=ES-t;note=`ES = −ei(${s})${dl?' + Δ':''} = ${um(-ei)}${dl?' + '+dl:''} = ${um(ES)} → EI = ES − IT${g}`}
+return {ES,EI,t,note,dl}}
+function fill(){const hs=$('hl'),ss=$('sl');hs.innerHTML=SL.map(x=>`<option>${x.toUpperCase()}</option>`).join('');ss.innerHTML=SL.map(x=>`<option>${x}</option>`).join('');
+['hg','sg'].forEach(id=>$(id).innerHTML=GR.map(g=>`<option>${g}</option>`).join(''))}
+function setPre(i){pre=i;const [h,s]=PRE[i];$('hl').value=h.replace(/\d+/,'');$('hg').value=h.match(/\d+/)[0];$('sl').value=s.replace(/\d+/,'');$('sg').value=s.match(/\d+/)[0];presets();upd()}
+function presets(){$('presets').innerHTML=PRE.map((p,i)=>`<button data-i="${i}" class="${i===pre?'on':''}"><b>${p[0]}/${p[1]}</b>${p[2][L]}</button>`).join('');
+document.querySelectorAll('#presets button').forEach(b=>b.onclick=()=>setPre(+b.dataset.i))}
+function compute(){const D=pn($('dia').value);if(!(D>0&&D<=500))return null;
+const hl=$('hl').value,hg=+$('hg').value,sl=$('sl').value,sgr=+$('sg').value;const H=hole(hl,hg,D),Sh=shaft(sl,sgr,D);
+const mx=H.ES-Sh.ei,mn=H.EI-Sh.es,ty=mn>=0?'cl':mx<=0?'in_':'tr_';return {D,hl,hg,sl,sg:sgr,H,Sh,mx,mn,ty,fit:`${hl}${hg}/${sl}${sgr}`}}
+function zone(r){const k=T[L];if(!r){$('zone').innerHTML='';return}
+const vals=[r.H.ES,r.H.EI,r.Sh.es,r.Sh.ei,0],hi=Math.max(...vals),lo=Math.min(...vals),pad=(hi-lo)*0.18+4,top=hi+pad,bot=lo-pad,W=360,Hh=230,y=v=>16+(Hh-32)*(top-v)/(top-bot);
+const z=y(0);let s=`<svg viewBox="0 0 ${W} ${Hh}"><line x1="16" x2="${W-16}" y1="${z}" y2="${z}" stroke="#f4f8fc" stroke-width="2" stroke-dasharray="6 4"/><text x="18" y="${z+15}" fill="#96b4d2" font-size="11">${k.zero}</text>`;
+const bx=(x,a,b,c,lab)=>{const y1=y(Math.max(a,b)),y2=y(Math.min(a,b));s+=`<rect x="${x}" y="${y1}" width="100" height="${Math.max(2,y2-y1)}" fill="${c}" fill-opacity=".35" stroke="${c}" stroke-width="2"/><text x="${x+50}" y="${y1-6}" fill="${c}" font-size="12" font-weight="700" text-anchor="middle">${lab}</text><text x="${x+106}" y="${y1+4}" fill="#f4f8fc" font-size="11">${um(Math.max(a,b))}</text><text x="${x+106}" y="${y2+4}" fill="#f4f8fc" font-size="11">${um(Math.min(a,b))}</text>`};
+bx(40,r.H.ES,r.H.EI,'#5ae1eb',`${k.hole} ${r.hl}${r.hg}`);bx(200,r.Sh.es,r.Sh.ei,'#f2b705',`${k.shaft} ${r.sl}${r.sg}`);s+=`<text x="18" y="${Hh-4}" fill="#96b4d2" font-size="11">${k.um}</text></svg>`;$('zone').innerHTML=s}
+function upd(){const k=T[L],r=compute();zone(r);
+if(!r){['r1','r2','r3','r4','r5'].forEach(i=>$(i).textContent='–');$('steps').innerHTML=`<li>${k.bad}</li>`;$('use').hidden=true;$('fitname').value='';return}
+$('fitname').value=r.fit;const D=r.D;
+$('r1').textContent=`${nf(D+r.H.EI/1000)} … ${nf(D+r.H.ES/1000)}`;$('r2').textContent=`${nf(D+r.Sh.ei/1000)} … ${nf(D+r.Sh.es/1000)}`;
+$('r3').textContent=`${um(r.mx)} µm`;$('r4').textContent=`${um(r.mn)} µm`;$('r5').textContent=k[r.ty];
+const [a,b]=rng(D),st=k.st;const steps=[[st.rng,`${a} < Ø ≤ ${b} mm`],[st.it,`IT${r.hg} = <em>${r.H.t}</em> µm · IT${r.sg} = <em>${r.Sh.t}</em> µm`],
+[st.hd+` (${r.hl}${r.hg})`,`${r.H.note} → ES = <em>${um(r.H.ES)}</em>, EI = <em>${um(r.H.EI)}</em> µm`],[st.sd+` (${r.sl}${r.sg})`,`${r.Sh.note} → es = <em>${um(r.Sh.es)}</em>, ei = <em>${um(r.Sh.ei)}</em> µm`]];
+if(r.H.dl)steps.splice(3,0,[st.dl,`Δ = IT${r.hg} − IT${r.hg-1} = <em>${r.H.dl}</em> µm`]);
+steps.push([st.mx,`ES − ei = ${um(r.H.ES)} − (${um(r.Sh.ei)}) = <em>${um(r.mx)}</em> µm`],[st.mn,`EI − es = ${um(r.H.EI)} − (${um(r.Sh.es)}) = <em>${um(r.mn)}</em> µm`]);
+$('steps').innerHTML=steps.map(([x,y])=>`<li><span class="k">${x}</span><code>${y}</code></li>`).join('');
+const p=PRE.findIndex(q=>q[0]===`${r.hl}${r.hg}`&&q[1]===`${r.sl}${r.sg}`);if(p>=0){$('use').hidden=false;$('use').textContent=PRE[p][3][L]}else $('use').hidden=true;
+document.querySelectorAll('#presets button').forEach((b,i)=>b.classList.toggle('on',i===p))}
+function table(){const k=T[L];$('thead').innerHTML=k.cols.map((c,i)=>`<th class="${i>=5&&i<=6?'n':''}">${c}</th>`).join('');
+$('tbody').innerHTML=list.length?list.map((r,i)=>`<tr><td>${i+1}</td><td class="n">${nf(r.D,r.D%1?1:0)}</td><td><b>${r.fit}</b></td><td class="n">${nf(r.D+r.H.EI/1000)} … ${nf(r.D+r.H.ES/1000)}</td><td class="n">${nf(r.D+r.Sh.ei/1000)} … ${nf(r.D+r.Sh.es/1000)}</td><td class="n">${um(r.mx)} µm</td><td class="n">${um(r.mn)} µm</td><td>${k[r.ty]}</td><td><button class="del" data-i="${i}">✕</button></td></tr>`).join(''):`<tr><td colspan="9" class="empty">${k.empty}</td></tr>`;
+document.querySelectorAll('.del').forEach(b=>b.onclick=()=>{list.splice(+b.dataset.i,1);save();table()})}
+function texts(){const k=T[L];document.documentElement.lang=L;$('ttl').innerHTML=k.ttl;$('brand').textContent=L==='tr'?'TEKNİK MEKANİK':'TECHNICAL MECHANICS';$('igt').textContent=k.igt;
+$('h_pre').textContent=k.pre;$('h_steps').textContent=k.steps;$('h_in').textContent=k.inp;$('l_d').textContent=k.d;$('l_fit').textContent=k.fit;$('l_h').textContent=k.h;$('l_s').textContent=k.s;
+['r1','r2','r3','r4','r5'].forEach(i=>$(i+'l').textContent=k[i]);$('add').textContent=k.add;$('h_list').textContent=k.list;$('l_proj').textContent=k.proj;$('l_by').textContent=k.by;$('pdf').textContent=k.pdf;$('clr').textContent=k.clr;
+$('stepnote').textContent=k.stn;$('tolnote').textContent=k.note;$('foot').textContent=k.foot;document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===L))}
+function all(){texts();presets();upd();table()}
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{L=b.dataset.l;save();all()});
+['dia','hl','hg','sl','sg'].forEach(id=>$(id).addEventListener('input',upd));['hl','hg','sl','sg'].forEach(id=>$(id).addEventListener('change',upd));
+$('add').onclick=()=>{const r=compute();if(!r)return;list.push(r);save();table()};
+$('clr').onclick=()=>{list=[];save();table()};
+$('pdf').onclick=()=>makePdf();
+function makePdf(){if(!list.length)return;const k=T[L],Wp=1240,Hp=1754,M=80,pages=[];let c,x,y;
+const np=()=>{c=document.createElement('canvas');c.width=Wp;c.height=Hp;x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,Wp,Hp);x.textBaseline='middle';
+x.fillStyle='#123a63';x.fillRect(0,0,Wp,120);x.strokeStyle='#fff';x.lineWidth=4;x.strokeRect(M,32,76,56);x.fillStyle='#fff';x.font='bold 32px monospace';x.textAlign='center';x.fillText('TM',M+38,61);
+x.textAlign='left';x.font='bold 26px monospace';x.fillText(L==='tr'?'TEKNİK MEKANİK':'TECHNICAL MECHANICS',M+100,61);x.fillStyle='#f2b705';x.font='bold 30px sans-serif';x.textAlign='right';x.fillText(k.pdfT,Wp-M,61);
+x.textAlign='left';pages.push(c);y=170};
+const foot=(i,n)=>{const g=pages[i].getContext('2d');g.fillStyle='#6a7896';g.font='20px sans-serif';g.textAlign='left';g.fillText(k.tol,M,Hp-60,Wp-2*M);g.textAlign='right';g.fillText(`${k.page} ${i+1}/${n}`,Wp-M,Hp-30);g.textAlign='left';g.fillText(k.foot,M,Hp-30)};
+np();x.fillStyle='#123a63';x.font='bold 28px sans-serif';const pj=$('proj').value||'—',by=$('by').value||'—';
+x.fillText(`${k.proj}: ${pj}`,M,y);x.textAlign='right';x.fillText(`${k.date}: ${new Date().toLocaleDateString(L==='tr'?'tr-TR':'en-GB')}`,Wp-M,y);x.textAlign='left';y+=42;x.font='24px sans-serif';x.fillStyle='#444';x.fillText(`${k.by}: ${by}`,M,y);y+=50;
+const cw=[40,90,120,210,210,130,130,150],cols=k.cols.slice(0,8),al=[0,1,0,1,1,1,1,0];
+const head=()=>{x.fillStyle='#f2b705';x.fillRect(M,y-24,Wp-2*M,48);x.fillStyle='#0c2848';x.font='bold 20px sans-serif';let cx=M+8;cols.forEach((h,i)=>{x.textAlign=al[i]?'right':'left';x.fillText(h,al[i]?cx+cw[i]-12:cx,y);cx+=cw[i]});x.textAlign='left';y+=48};
+head();
+list.forEach((r,i)=>{if(y>Hp-220){np();head()}if(i%2===0){x.fillStyle='#eef3f9';x.fillRect(M,y-22,Wp-2*M,44)}
+const cells=[String(i+1),nf(r.D,r.D%1?1:0),r.fit,`${nf(r.D+r.H.EI/1000)} … ${nf(r.D+r.H.ES/1000)}`,`${nf(r.D+r.Sh.ei/1000)} … ${nf(r.D+r.Sh.es/1000)}`,um(r.mx)+' µm',um(r.mn)+' µm',k[r.ty]];
+x.fillStyle='#111';x.font='20px sans-serif';let cx=M+8;cells.forEach((v,j)=>{x.textAlign=al[j]?'right':'left';x.fillText(v,al[j]?cx+cw[j]-12:cx,y,cw[j]-14);cx+=cw[j]});x.textAlign='left';y+=44});
+y+=40;if(y>Hp-260){np()}x.fillStyle='#123a63';x.font='bold 26px sans-serif';x.fillText(k.steps,M,y);y+=40;
+list.forEach((r,i)=>{const [a,b]=rng(r.D);const lines=[`${k.st.rng}: ${a} < Ø ≤ ${b} mm · IT${r.hg} = ${r.H.t} µm · IT${r.sg} = ${r.Sh.t} µm`,`${r.hl}${r.hg}: ${r.H.note.replace(/<\/?em>/g,'')} → ES = ${um(r.H.ES)}, EI = ${um(r.H.EI)} µm`,`${r.sl}${r.sg}: ${r.Sh.note} → es = ${um(r.Sh.es)}, ei = ${um(r.Sh.ei)} µm`,`${k.st.mx}: ${um(r.mx)} µm · ${k.st.mn}: ${um(r.mn)} µm · ${k[r.ty]}`];
+const need=32*(lines.length+1)+16;if(y+need>Hp-140){np()}x.fillStyle='#123a63';x.font='bold 21px sans-serif';x.fillText(`${i+1}. Ø${nf(r.D,r.D%1?1:0)} ${r.fit}`,M,y);y+=32;x.font='18px monospace';x.fillStyle='#333';lines.forEach(t=>{x.fillText(t,M+20,y,Wp-2*M-20);y+=30});y+=14});
+pages.forEach((_,i)=>foot(i,pages.length));
+const enc=new TextEncoder(),parts=[],offs=[];let len=0;const push=b=>{if(typeof b==='string')b=enc.encode(b);parts.push(b);len+=b.length};
+const imgs=pages.map(p=>{const d=atob(p.toDataURL('image/jpeg',0.9).split(',')[1]);const u=new Uint8Array(d.length);for(let i=0;i<d.length;i++)u[i]=d.charCodeAt(i);return u});
+const n=pages.length,obj=(id,body)=>{offs[id]=len;push(`${id} 0 obj\n`);body();push('\nendobj\n')};
+push('%PDF-1.4\n%\xE2\xE3\xCF\xD3\n');
+obj(1,()=>push('<< /Type /Catalog /Pages 2 0 R >>'));
+obj(2,()=>push(`<< /Type /Pages /Count ${n} /Kids [${pages.map((_,i)=>(3+i*3)+' 0 R').join(' ')}] >>`));
+pages.forEach((_,i)=>{const p=3+i*3,im=p+1,cs=p+2,cnt=`q 595.28 0 0 841.89 0 0 cm /I${i} Do Q`;
+obj(p,()=>push(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /XObject << /I${i} ${im} 0 R >> >> /Contents ${cs} 0 R >>`));
+obj(im,()=>{push(`<< /Type /XObject /Subtype /Image /Width ${Wp} /Height ${Hp} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${imgs[i].length} >>\nstream\n`);push(imgs[i]);push('\nendstream')});
+obj(cs,()=>push(`<< /Length ${cnt.length} >>\nstream\n${cnt}\nendstream`))});
+const xo=len,tot=3+n*3;let xr=`xref\n0 ${tot}\n0000000000 65535 f \n`;for(let i=1;i<tot;i++)xr+=String(offs[i]).padStart(10,'0')+' 00000 n \n';
+push(xr+`trailer\n<< /Size ${tot} /Root 1 0 R >>\nstartxref\n${xo}\n%%EOF`);
+const blob=new Blob(parts,{type:'application/pdf'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);
+a.download=(($('proj').value||(L==='tr'?'gecme_listesi':'fit_list')).replace(/[^\wçğıöşüÇĞİÖŞÜ-]+/g,'_'))+'.pdf';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500)}
+fill();setPre(3);all();
+</script>
+</body>
+</html>
